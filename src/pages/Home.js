@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import SelectSmall from "../components.js/select";
+import { addEmployeeToList } from "../features/employeeSlice";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const newEmployee = {
+    firstName,
+    lastName,
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addEmployeeToList(newEmployee));
+  };
+
   return (
     <main>
       <div className="title">
@@ -9,12 +26,23 @@ const Home = () => {
       <div className="container">
         <a href="employee-list.html">View Current Employees</a>
         <h2>Create Employee</h2>
-        <form action="#" id="create-employee">
+        <form action="#" id="create-employee" onSubmit={handleSubmit}>
           <label htmlFor="first-name">First Name</label>
-          <input type="text" id="first-name" />
+          <input
+            type="text"
+            id="first-name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required="required"
+          />
 
           <label htmlFor="last-name">Last Name</label>
-          <input type="text" id="last-name" />
+          <input
+            type="text"
+            id="last-name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
 
           <label htmlFor="date-of-birth">Date of Birth</label>
           <input id="date-of-birth" type="text" />
@@ -46,9 +74,9 @@ const Home = () => {
             <option>Human Resources</option>
             <option>Legal</option>
           </select>
+          <SelectSmall></SelectSmall>
+          <button>Save</button>
         </form>
-
-        <button>Save</button>
       </div>
     </main>
   );
