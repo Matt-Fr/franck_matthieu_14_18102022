@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import SelectSmall from "../components.js/select";
+import { Link } from "react-router-dom";
+import MaterialUIPickers from "../components.js/DatePicker";
+import SelectSmall from "../components.js/Select";
 import { addEmployeeToList } from "../features/employeeSlice";
 
 const Home = () => {
@@ -24,7 +26,7 @@ const Home = () => {
         <h1>HRnet</h1>
       </div>
       <div className="container">
-        <a href="employee-list.html">View Current Employees</a>
+        <Link to="/employees">View Current Employees</Link>
         <h2>Create Employee</h2>
         <form action="#" id="create-employee" onSubmit={handleSubmit}>
           <label htmlFor="first-name">First Name</label>
@@ -45,7 +47,7 @@ const Home = () => {
           />
 
           <label htmlFor="date-of-birth">Date of Birth</label>
-          <input id="date-of-birth" type="text" />
+          {/* <MaterialUIPickers></MaterialUIPickers> */}
 
           <label htmlFor="start-date">Start Date</label>
           <input id="start-date" type="text" />
