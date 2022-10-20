@@ -60,7 +60,7 @@ const Home = () => {
             <input id="city" type="text" />
 
             <label htmlFor="state">State</label>
-            <select name="state" id="state"></select>
+            <SelectSmall name="state" id="state"></SelectSmall>
 
             <label htmlFor="zip-code">Zip Code</label>
             <input id="zip-code" type="number" />
@@ -74,7 +74,6 @@ const Home = () => {
             <option>Human Resources</option>
             <option>Legal</option>
           </select>
-          <SelectSmall></SelectSmall>
           <button>Save</button>
         </form>
       </div>
