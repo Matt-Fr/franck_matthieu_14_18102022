@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import SelectSmall from "../components.js/Select";
 import { addEmployeeToList } from "../features/employeeSlice";
 import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -15,30 +14,18 @@ import Select from "@mui/material/Select";
 import { states } from "../utils/UsStates";
 
 const Home = () => {
-  const useStyles = makeStyles((theme) => ({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  }));
-
   const dispatch = useDispatch();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [startDate, setStartDate] = useState(null);
+  const [stateInput, setStateInput] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addEmployeeToList(newEmployee));
   };
-  const [stateInput, setStateInput] = React.useState("");
+
   console.log(stateInput);
-  const handleChange = (event) => {
-    setStateInput(event.target.value);
-  };
 
   const newEmployee = {
     firstName,
@@ -126,7 +113,7 @@ const Home = () => {
                 id="demo-select-small"
                 value={stateInput}
                 label="State"
-                onChange={handleChange}
+                onChange={(e) => setStateInput(e.target.value)}
               >
                 {states.map((state) => {
                   return (
