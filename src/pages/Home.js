@@ -8,6 +8,11 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { makeStyles } from "@material-ui/styles";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { states } from "../utils/UsStates";
 
 const Home = () => {
   const useStyles = makeStyles((theme) => ({
@@ -25,15 +30,23 @@ const Home = () => {
   const [lastName, setLastName] = useState("");
   const [startDate, setStartDate] = useState(null);
 
-  const newEmployee = {
-    firstName,
-    lastName,
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addEmployeeToList(newEmployee));
   };
+  const [stateInput, setStateInput] = React.useState("");
+  console.log(stateInput);
+  const handleChange = (event) => {
+    setStateInput(event.target.value);
+  };
+
+  const newEmployee = {
+    firstName,
+    lastName,
+    stateInput,
+  };
+
+  console.log(newEmployee);
 
   return (
     <main>
@@ -103,7 +116,27 @@ const Home = () => {
             <input id="city" type="text" />
 
             <label htmlFor="state">State</label>
-            <SelectSmall name="state" id="state"></SelectSmall>
+
+            <FormControl sx={{ m: 1, minWidth: 80 }}>
+              <InputLabel id="demo-simple-select-autowidth-label">
+                State
+              </InputLabel>
+              <Select
+                labelId="demo-select-small"
+                id="demo-select-small"
+                value={stateInput}
+                label="State"
+                onChange={handleChange}
+              >
+                {states.map((state) => {
+                  return (
+                    <MenuItem key={state.abbreviation} value={state.name}>
+                      {state.name}
+                    </MenuItem>
+                  );
+                })}
+              </Select>
+            </FormControl>
 
             <label htmlFor="zip-code">Zip Code</label>
             <input id="zip-code" type="number" />
