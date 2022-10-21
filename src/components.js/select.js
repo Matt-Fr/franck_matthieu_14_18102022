@@ -7,14 +7,14 @@ import { states } from "../utils/UsStates";
 
 export default function SelectSmall() {
   const [stateInput, setStateInput] = React.useState("");
-
+  console.log(stateInput);
   const handleChange = (event) => {
     setStateInput(event.target.value);
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-      <InputLabel id="demo-select-small">State</InputLabel>
+    <FormControl sx={{ m: 1, minWidth: 80 }}>
+      <InputLabel id="demo-simple-select-autowidth-label">State</InputLabel>
       <Select
         labelId="demo-select-small"
         id="demo-select-small"
