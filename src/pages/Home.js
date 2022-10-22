@@ -11,6 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { states } from "../utils/UsStates";
+import { departments } from "../utils/departments";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Home = () => {
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [zipCode, setzipCode] = useState("");
+  const [department, setDepartment] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +33,13 @@ const Home = () => {
   const newEmployee = {
     firstName,
     lastName,
+    birthDate,
+    startDate,
+    street,
+    city,
+    zipCode,
     stateInput,
+    department,
   };
 
   console.log(newEmployee);
@@ -58,7 +66,7 @@ const Home = () => {
             required="required"
             value={lastName}
             id="outlined-required"
-            label="First Name"
+            label="Last Name"
             variant="outlined"
             onChange={(e) => setLastName(e.target.value)}
           />
@@ -108,7 +116,7 @@ const Home = () => {
               variant="outlined"
               onChange={(e) => setzipCode(e.target.value)}
             />
-            <FormControl sx={{ m: 1, minWidth: 80 }}>
+            <FormControl sx={{ m: 1, minWidth: 200 }}>
               <InputLabel id="demo-simple-select-autowidth-label">
                 State
               </InputLabel>
@@ -130,14 +138,30 @@ const Home = () => {
             </FormControl>
           </fieldset>
 
-          <label htmlFor="department">Department</label>
-          <select name="department" id="department">
-            <option>Sales</option>
-            <option>Marketing</option>
-            <option>Engineering</option>
-            <option>Human Resources</option>
-            <option>Legal</option>
-          </select>
+          <FormControl sx={{ m: 1, minWidth: 200 }}>
+            <InputLabel id="demo-simple-select-autowidth-label">
+              Department
+            </InputLabel>
+            <Select
+              labelId="demo-select-small"
+              id="demo-select-small"
+              value={department}
+              label="State"
+              onChange={(e) => setDepartment(e.target.value)}
+            >
+              {departments.map((department) => {
+                return (
+                  <MenuItem
+                    key={department.abbreviation}
+                    value={department.name}
+                  >
+                    {department.name}
+                  </MenuItem>
+                );
+              })}
+            </Select>
+          </FormControl>
+
           <button>Save</button>
         </form>
       </div>
