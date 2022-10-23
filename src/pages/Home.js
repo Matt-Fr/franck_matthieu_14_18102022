@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addEmployeeToList } from "../features/employeeSlice";
 import TextField from "@mui/material/TextField";
@@ -31,7 +31,14 @@ const Home = () => {
     dispatch(addEmployeeToList(newEmployee));
   };
 
+  let id = 1;
+  const employees = useSelector((state) => state?.employees.employeesList);
+  if (employees.length) {
+    id = Math.max(...employees.map((employee) => employee.id)) + 1;
+  }
+
   const newEmployee = {
+    id,
     firstName,
     lastName,
     birthDate,
