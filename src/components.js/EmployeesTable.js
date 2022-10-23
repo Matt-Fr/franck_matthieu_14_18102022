@@ -24,12 +24,30 @@ export default function DataTable() {
     } else if (search) {
       const filteredEmployees = employeesList.filter(
         (employee) =>
-          employee.firstName.includes(search) ||
-          employee.lastName.includes(search) ||
-          employee.department.includes(search) ||
-          employee.city.includes(search) ||
-          employee.stateInput.includes(search) ||
-          employee.zipCode.includes(search)
+          employee.firstName
+            .toString()
+            .toLowerCase()
+            .includes(search.toString().toLowerCase()) ||
+          employee.lastName
+            .toString()
+            .toLowerCase()
+            .includes(search.toString().toLowerCase()) ||
+          employee.department
+            .toString()
+            .toLowerCase()
+            .includes(search.toString().toLowerCase()) ||
+          employee.city
+            .toString()
+            .toLowerCase()
+            .includes(search.toString().toLowerCase()) ||
+          employee.stateInput
+            .toString()
+            .toLowerCase()
+            .includes(search.toString().toLowerCase()) ||
+          employee.zipCode
+            .toString()
+            .toLowerCase()
+            .includes(search.toString().toLowerCase())
       );
       return filteredEmployees;
     }
