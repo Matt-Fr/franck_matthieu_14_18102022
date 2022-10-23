@@ -12,6 +12,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { states } from "../utils/UsStates";
 import { departments } from "../utils/departments";
+import Button from "@mui/material/Button";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -54,7 +55,6 @@ const Home = () => {
         <h2>Create Employee</h2>
         <form action="#" id="create-employee" onSubmit={handleSubmit}>
           <TextField
-            required="required"
             value={firstName}
             id="outlined-required"
             label="First Name"
@@ -63,7 +63,6 @@ const Home = () => {
           />
 
           <TextField
-            required="required"
             value={lastName}
             id="outlined-required"
             label="Last Name"
@@ -151,18 +150,16 @@ const Home = () => {
             >
               {departments.map((department) => {
                 return (
-                  <MenuItem
-                    key={department.abbreviation}
-                    value={department.name}
-                  >
+                  <MenuItem key={department.name} value={department.name}>
                     {department.name}
                   </MenuItem>
                 );
               })}
             </Select>
           </FormControl>
-
-          <button>Save</button>
+          <Button type="submit" variant="contained">
+            Save
+          </Button>
         </form>
       </div>
     </main>
