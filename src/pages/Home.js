@@ -50,8 +50,6 @@ const Home = () => {
     department,
   };
 
-  console.log(newEmployee);
-
   return (
     <main>
       <div className="title">

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
+import TextField from "@mui/material/TextField";
 
 const columns = [
   { field: "firstName", headerName: "First name", width: 130 },
@@ -15,16 +16,42 @@ const columns = [
 
 export default function DataTable() {
   const { employeesList } = useSelector((store) => store.employees);
-
+  const [search, setSearch] = React.useState("");
+  console.log(employeesList);
+  const handleSearchChange = () => {
+    if (!search) {
+      return employeesList;
+    } else if (search) {
+      const filteredEmployees = employeesList.filter(
+        (employee) =>
+          employee.firstName.includes(search) ||
+          employee.lastName.includes(search) ||
+          employee.department.includes(search) ||
+          employee.city.includes(search) ||
+          employee.stateInput.includes(search) ||
+          employee.zipCode.includes(search)
+      );
+      return filteredEmployees;
+    }
+  };
   return (
-    <div style={{ height: 400, width: "100%" }}>
-      <DataGrid
-        rows={employeesList}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
+    <>
+      <div style={{ height: 400, width: "100%" }}>
+        <DataGrid
+          rows={handleSearchChange()}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          checkboxSelection
+        />
+      </div>
+      <TextField
+        value={search}
+        id="outlined-required"
+        label="Search"
+        variant="outlined"
+        onChange={(e) => setSearch(e.target.value)}
       />
-    </div>
+    </>
   );
 }
