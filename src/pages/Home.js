@@ -52,13 +52,18 @@ const Home = () => {
 
   return (
     <main>
-      <div className="title">
-        <h1>HRnet</h1>
-      </div>
-      <div className="container">
-        <Link to="/employees">View Current Employees</Link>
+      <h1 className="title">HRnet</h1>
+      <div className="containerHome">
+        <Link to="/employees" className="linkTable">
+          View Current Employees
+        </Link>
         <h2>Create Employee</h2>
-        <form action="#" id="create-employee" onSubmit={handleSubmit}>
+        <form
+          action="#"
+          className="formHome"
+          id="create-employee"
+          onSubmit={handleSubmit}
+        >
           <TextField
             value={firstName}
             id="outlined-required"
@@ -97,7 +102,7 @@ const Home = () => {
             />
           </LocalizationProvider>
 
-          <fieldset className="address">
+          <div className="address">
             <legend>Address</legend>
             <TextField
               value={street}
@@ -140,7 +145,7 @@ const Home = () => {
                 })}
               </Select>
             </FormControl>
-          </fieldset>
+          </div>
 
           <FormControl sx={{ m: 1, minWidth: 200 }}>
             <InputLabel id="demo-simple-select-autowidth-label">
