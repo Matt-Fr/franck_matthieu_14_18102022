@@ -51,7 +51,7 @@ const Home = () => {
   };
 
   return (
-    <main>
+    <main className="main">
       <h1 className="title">HRnet</h1>
       <div className="containerHome">
         <Link to="/employees" className="linkTable">
@@ -64,47 +64,52 @@ const Home = () => {
           id="create-employee"
           onSubmit={handleSubmit}
         >
-          <TextField
-            value={firstName}
-            id="outlined-required"
-            label="First Name"
-            variant="outlined"
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-
-          <TextField
-            value={lastName}
-            id="outlined-required"
-            label="Last Name"
-            variant="outlined"
-            onChange={(e) => setLastName(e.target.value)}
-          />
-
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              label="Date of Birth"
-              value={birthDate}
-              onChange={(newValue) => {
-                setBirthDate(newValue);
-              }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
-
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              label="Start Date"
-              value={startDate}
-              onChange={(newValue) => {
-                setStartDate(newValue);
-              }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
-
-          <div className="address">
-            <legend>Address</legend>
+          <div className="containerNames">
             <TextField
+              className="input"
+              value={firstName}
+              id="outlined-required"
+              label="First Name"
+              variant="outlined"
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+
+            <TextField
+              value={lastName}
+              className="input"
+              id="outlined-required"
+              label="Last Name"
+              variant="outlined"
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
+          <div className="containerDates">
+            <LocalizationProvider className="input" dateAdapter={AdapterDayjs}>
+              <DatePicker
+                label="Date of Birth"
+                value={birthDate}
+                onChange={(newValue) => {
+                  setBirthDate(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+
+            <LocalizationProvider className="input" dateAdapter={AdapterDayjs}>
+              <DatePicker
+                label="Start Date"
+                value={startDate}
+                onChange={(newValue) => {
+                  setStartDate(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </div>
+          <div className="address">
+            <h2>Address</h2>
+            <TextField
+              className="input"
               value={street}
               id="outlined-required"
               label="Street"
@@ -112,6 +117,7 @@ const Home = () => {
               onChange={(e) => setStreet(e.target.value)}
             />
             <TextField
+              className="input"
               value={city}
               id="outlined-required"
               label="City"
@@ -119,6 +125,7 @@ const Home = () => {
               onChange={(e) => setCity(e.target.value)}
             />
             <TextField
+              className="input"
               value={zipCode}
               id="outlined-required"
               label="Zip Code"
