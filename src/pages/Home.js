@@ -13,6 +13,7 @@ import Select from "@mui/material/Select";
 import { states } from "../utils/UsStates";
 import { departments } from "../utils/departments";
 import Button from "@mui/material/Button";
+import Modal from "../components.js/Modal";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -179,6 +180,7 @@ const Home = () => {
           </Button>
         </form>
       </div>
+      <Modal message="Employee Created"></Modal>
     </main>
   );
 };
