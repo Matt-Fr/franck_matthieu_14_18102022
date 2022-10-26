@@ -26,6 +26,7 @@ const Home = () => {
   const [city, setCity] = useState("");
   const [zipCode, setzipCode] = useState("");
   const [department, setDepartment] = useState("");
+  const [openModal, setOpenModal] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -175,12 +176,24 @@ const Home = () => {
               })}
             </Select>
           </FormControl>
-          <Button type="submit" variant="contained">
+          <Button
+            type="submit"
+            variant="contained"
+            onClick={() => {
+              setOpenModal(!openModal);
+            }}
+          >
             Save
           </Button>
         </form>
       </div>
-      <Modal message="Employee Created"></Modal>
+      {openModal && (
+        <Modal
+          message="Employee Created"
+          openModal
+          setOpenModal={setOpenModal}
+        ></Modal>
+      )}
     </main>
   );
 };

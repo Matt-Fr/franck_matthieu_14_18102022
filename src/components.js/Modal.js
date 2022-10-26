@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Modal.css";
 
-const Modal = ({ message }) => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+const Modal = ({ message, openModal, setOpenModal }) => {
   return (
-    isModalOpen && (
+    openModal && (
       <div
         className="background"
         onClick={() => {
-          setIsModalOpen(false);
+          setOpenModal(false);
         }}
       >
         <div
           className="background-Container"
           onClick={() => {
-            setIsModalOpen(false);
+            setOpenModal(false);
           }}
         >
           <h3 className="background-Container-title">{message}</h3>
