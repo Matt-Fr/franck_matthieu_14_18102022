@@ -47,6 +47,14 @@ export default function DataTable() {
           employee.zipCode
             .toString()
             .toLowerCase()
+            .includes(search.toString().toLowerCase()) ||
+          employee.birthDate
+            .toString()
+            .toLowerCase()
+            .includes(search.toString().toLowerCase()) ||
+          employee.startDate
+            .toString()
+            .toLowerCase()
             .includes(search.toString().toLowerCase())
       );
       return filteredEmployees;
