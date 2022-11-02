@@ -69,8 +69,7 @@ const Home = () => {
           <div className="containerNames">
             <TextField
               sx={{
-                width: 200,
-                margin: 1,
+                width: 230,
               }}
               className="input"
               value={firstName}
@@ -82,8 +81,7 @@ const Home = () => {
 
             <TextField
               sx={{
-                width: 200,
-                margin: 1,
+                width: 230,
               }}
               value={lastName}
               className="input"

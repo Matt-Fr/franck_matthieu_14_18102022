@@ -26,6 +26,12 @@ body {
   transition: 250ms;
 }
 
+.btnHome {
+  text-align: center;
+  margin: 1rem;
+  width: 5rem;
+}
+
 .linkTable:hover {
   background-color: #1a65af;
   box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 30%),
@@ -34,6 +40,7 @@ body {
 
 .containerHome {
   padding: 1rem;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,6 +78,15 @@ body {
   margin: 1rem;
 }
 
-.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
-  margin: 1rem;
+.pageEmployee {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.containerEmployee {
+  width: 100%;
+}
+
+.titleEmployeePage {
+  text-align: center;
 }

@@ -4,12 +4,14 @@ import DataTable from "../components.js/EmployeesTable";
 
 const Employees = () => {
   return (
-    <main>
-      <div id="employee-div" className="container">
-        <h1>Current Employees</h1>
+    <main className="pageEmployee">
+      <div id="employee-div" className="containerEmployee">
+        <h1 className="titleEmployeePage">Current Employees</h1>
         <DataTable></DataTable>
-        <Link to="/">Home</Link>
       </div>
+      <Link to="/" className="linkTable btnHome">
+        Home
+      </Link>
     </main>
   );
 };
