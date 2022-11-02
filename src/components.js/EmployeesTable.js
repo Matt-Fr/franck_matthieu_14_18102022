@@ -62,8 +62,21 @@ export default function DataTable() {
   };
   return (
     <>
+      <TextField
+        sx={{
+          margin: 1,
+        }}
+        value={search}
+        id="outlined-required"
+        label="Search"
+        variant="outlined"
+        onChange={(e) => setSearch(e.target.value)}
+      />
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
+          sx={{
+            margin: 1,
+          }}
           rows={handleSearchChange()}
           columns={columns}
           pageSize={5}
@@ -71,13 +84,6 @@ export default function DataTable() {
           checkboxSelection
         />
       </div>
-      <TextField
-        value={search}
-        id="outlined-required"
-        label="Search"
-        variant="outlined"
-        onChange={(e) => setSearch(e.target.value)}
-      />
     </>
   );
 }

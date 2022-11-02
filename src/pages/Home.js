@@ -68,6 +68,10 @@ const Home = () => {
         >
           <div className="containerNames">
             <TextField
+              sx={{
+                width: 200,
+                margin: 1,
+              }}
               className="input"
               value={firstName}
               id="outlined-required"
@@ -77,6 +81,10 @@ const Home = () => {
             />
 
             <TextField
+              sx={{
+                width: 200,
+                margin: 1,
+              }}
               value={lastName}
               className="input"
               id="outlined-required"
@@ -115,6 +123,10 @@ const Home = () => {
           <div className="address">
             <h2>Address</h2>
             <TextField
+              sx={{
+                width: 200,
+                margin: 1,
+              }}
               className="input"
               value={street}
               id="outlined-required"
@@ -123,6 +135,10 @@ const Home = () => {
               onChange={(e) => setStreet(e.target.value)}
             />
             <TextField
+              sx={{
+                width: 200,
+                margin: 1,
+              }}
               className="input"
               value={city}
               id="outlined-required"
@@ -131,6 +147,10 @@ const Home = () => {
               onChange={(e) => setCity(e.target.value)}
             />
             <TextField
+              sx={{
+                width: 200,
+                margin: 1,
+              }}
               className="input"
               value={zipCode}
               id="outlined-required"
@@ -181,6 +201,10 @@ const Home = () => {
             </Select>
           </FormControl>
           <Button
+            sx={{
+              width: 100,
+              margin: 1,
+            }}
             type="submit"
             variant="contained"
             onClick={() => {
