@@ -13,7 +13,7 @@ import Select from "@mui/material/Select";
 import { states } from "../utils/UsStates";
 import { departments } from "../utils/departments";
 import Button from "@mui/material/Button";
-import Modal from "../components.js/Modal";
+import { Modal } from "matt-fr-react-modal";
 
 const Home = () => {
   const dispatch = useDispatch();
