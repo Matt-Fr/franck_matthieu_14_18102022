@@ -100,9 +100,7 @@ const Home = () => {
                 label="Date of Birth"
                 value={birthDate}
                 onChange={(newValue) => {
-                  setBirthDate(
-                    `${newValue.$d.getDate()}/${newValue.$d.getMonth()}/${newValue.$d.getFullYear()}`
-                  );
+                  setBirthDate(newValue);
                 }}
                 renderInput={(params) => <TextField {...params} />}
               />
@@ -113,9 +111,7 @@ const Home = () => {
                 label="Start Date"
                 value={startDate}
                 onChange={(newValue) => {
-                  setStartDate(
-                    `${newValue.$d.getDate()}/${newValue.$d.getMonth()}/${newValue.$d.getFullYear()}`
-                  );
+                  setStartDate(newValue);
                 }}
                 renderInput={(params) => <TextField {...params} />}
               />

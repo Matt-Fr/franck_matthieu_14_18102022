@@ -15,7 +15,11 @@ const columns = [
 ];
 
 export default function DataTable() {
-  const { employeesList } = useSelector((store) => store.employees);
+  let { employeesList } = useSelector((store) => store.employees);
+  employeesList = employeesList.map((employee) => ({
+    ...employee,
+    birthDate: `${employee.birthDate.$d.getDate()}/${employee.birthDate.$d.getMonth()}/${employee.birthDate.$d.getFullYear()}`,
+  }));
   const [search, setSearch] = React.useState("");
   console.log(employeesList);
   const handleSearchChange = () => {
