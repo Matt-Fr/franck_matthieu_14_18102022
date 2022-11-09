@@ -19,6 +19,7 @@ export default function DataTable() {
   employeesList = employeesList.map((employee) => ({
     ...employee,
     birthDate: `${employee.birthDate.$d.getDate()}/${employee.birthDate.$d.getMonth()}/${employee.birthDate.$d.getFullYear()}`,
+    startDate: `${employee.startDate.$d.getDate()}/${employee.startDate.$d.getMonth()}/${employee.startDate.$d.getFullYear()}`,
   }));
   const [search, setSearch] = React.useState("");
   console.log(employeesList);

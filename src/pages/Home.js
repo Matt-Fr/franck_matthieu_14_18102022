@@ -102,7 +102,7 @@ const Home = () => {
                 onChange={(newValue) => {
                   setBirthDate(newValue);
                 }}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params) => <TextField {...params} required />}
               />
             </LocalizationProvider>
 
@@ -113,7 +113,7 @@ const Home = () => {
                 onChange={(newValue) => {
                   setStartDate(newValue);
                 }}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params) => <TextField {...params} required />}
               />
             </LocalizationProvider>
           </div>
