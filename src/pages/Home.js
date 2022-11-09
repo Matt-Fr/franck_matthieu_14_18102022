@@ -31,6 +31,7 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addEmployeeToList(newEmployee));
+    setOpenModal(!openModal);
   };
 
   let id = 1;
@@ -77,6 +78,7 @@ const Home = () => {
               label="First Name"
               variant="outlined"
               onChange={(e) => setFirstName(e.target.value)}
+              required
             />
 
             <TextField
@@ -89,6 +91,7 @@ const Home = () => {
               label="Last Name"
               variant="outlined"
               onChange={(e) => setLastName(e.target.value)}
+              required
             />
           </div>
           <div className="containerDates">
@@ -205,9 +208,6 @@ const Home = () => {
             }}
             type="submit"
             variant="contained"
-            onClick={() => {
-              setOpenModal(!openModal);
-            }}
           >
             Save
           </Button>
