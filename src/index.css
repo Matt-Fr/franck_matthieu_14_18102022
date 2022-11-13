@@ -90,3 +90,16 @@ body {
 .titleEmployeePage {
   text-align: center;
 }
+
+@media only screen and (max-width: 554px) {
+  .containerNames {
+    flex-direction: column;
+    align-items: center;
+    height: 9rem;
+  }
+  .containerDates {
+    flex-direction: column;
+    align-items: center;
+    height: 9rem;
+  }
+}
