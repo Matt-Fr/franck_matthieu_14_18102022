@@ -68,12 +68,12 @@ const Home = () => {
 
   return (
     <main className="main">
-      <h1 className="title">HRnet</h1>
+      <h1 className="mainTitle">HRnet</h1>
       <Link to="/employees" className="linkTable">
         View Current Employees
       </Link>
       <div className="containerHome">
-        <h2>Create Employee</h2>
+        <h2 className="formTitle">Create Employee</h2>
         <form
           action="#"
           className="formHome"
@@ -129,7 +129,7 @@ const Home = () => {
             </LocalizationProvider>
           </div>
           <div className="address">
-            <h2>Address</h2>
+            <h3 className="adressTitle">Address</h3>
             <TextField
               sx={{
                 width: 200,
