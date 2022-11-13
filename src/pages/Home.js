@@ -32,6 +32,19 @@ const Home = () => {
     e.preventDefault();
     dispatch(addEmployeeToList(newEmployee));
     setOpenModal(!openModal);
+    resetInput();
+  };
+
+  const resetInput = () => {
+    setFirstName("");
+    setLastName("");
+    setBirthDate(null);
+    setStartDate(null);
+    setStateInput("");
+    setStreet("");
+    setCity("");
+    setzipCode("");
+    setDepartment("");
   };
 
   let id = 1;
@@ -56,10 +69,10 @@ const Home = () => {
   return (
     <main className="main">
       <h1 className="title">HRnet</h1>
+      <Link to="/employees" className="linkTable">
+        View Current Employees
+      </Link>
       <div className="containerHome">
-        <Link to="/employees" className="linkTable">
-          View Current Employees
-        </Link>
         <h2>Create Employee</h2>
         <form
           action="#"
@@ -74,7 +87,6 @@ const Home = () => {
               }}
               className="input"
               value={firstName}
-              id="outlined-required"
               label="First Name"
               variant="outlined"
               onChange={(e) => setFirstName(e.target.value)}
@@ -87,7 +99,6 @@ const Home = () => {
               }}
               value={lastName}
               className="input"
-              id="outlined-required"
               label="Last Name"
               variant="outlined"
               onChange={(e) => setLastName(e.target.value)}
@@ -126,7 +137,6 @@ const Home = () => {
               }}
               className="input"
               value={street}
-              id="outlined-required"
               label="Street"
               variant="outlined"
               onChange={(e) => setStreet(e.target.value)}
@@ -138,7 +148,6 @@ const Home = () => {
               }}
               className="input"
               value={city}
-              id="outlined-required"
               label="City"
               variant="outlined"
               onChange={(e) => setCity(e.target.value)}
@@ -150,18 +159,14 @@ const Home = () => {
               }}
               className="input"
               value={zipCode}
-              id="outlined-required"
               label="Zip Code"
               variant="outlined"
               onChange={(e) => setzipCode(e.target.value)}
             />
             <FormControl sx={{ m: 1, minWidth: 200 }}>
-              <InputLabel id="demo-simple-select-autowidth-label">
-                State
-              </InputLabel>
+              <InputLabel>State</InputLabel>
               <Select
                 labelId="demo-select-small"
-                id="demo-select-small"
                 value={stateInput}
                 label="State"
                 onChange={(e) => setStateInput(e.target.value)}
@@ -178,12 +183,9 @@ const Home = () => {
           </div>
 
           <FormControl sx={{ m: 1, minWidth: 200 }}>
-            <InputLabel id="demo-simple-select-autowidth-label">
-              Department
-            </InputLabel>
+            <InputLabel>Department</InputLabel>
             <Select
               labelId="demo-select-small"
-              id="demo-select-small"
               value={department}
               label="State"
               onChange={(e) => setDepartment(e.target.value)}
